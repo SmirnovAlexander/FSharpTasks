@@ -12,15 +12,17 @@ let rev list =
     loop list []
 
 // Returns list filled with powers of 2.
-let fillListWithPowersOfTwo powerToStart numberOfElememtsMinusOne =
-    let rec loop powerToStart numberOfElememtsMinusOne (list:list<int>) acc=
+let fillListWithPowersOfTwo powerToStart numberOfElementsMinusOne =
+    let rec loop powerToStart numberOfElementsMinusOne (list:list<int>) acc=
         match list.Length with
-        | i when i = numberOfElememtsMinusOne + 1 -> rev list
-        | 0 -> loop powerToStart numberOfElememtsMinusOne (pow 2 (list.Length + powerToStart)::list) (pow 2 (list.Length + powerToStart))
-        | _ -> loop powerToStart numberOfElememtsMinusOne (2*acc::list) (2*acc)
-    loop powerToStart numberOfElememtsMinusOne [] 2
+        | i when i = numberOfElementsMinusOne + 1 -> rev list
+        | 0 -> let p = pow 2 (list.Length + powerToStart) 
+               loop powerToStart numberOfElementsMinusOne (p::list) p
+        | _ -> let newElement = 2 * acc
+               loop powerToStart numberOfElementsMinusOne (newElement::list) newElement
+    loop powerToStart numberOfElementsMinusOne [] 2
         
 // Result.
 let powerToStart = 3
-let numberOfElememtsMinusOne = 5
-let result = fillListWithPowersOfTwo powerToStart numberOfElememtsMinusOne
+let numberOfElementsMinusOne = 7
+let result = fillListWithPowersOfTwo powerToStart numberOfElementsMinusOne
