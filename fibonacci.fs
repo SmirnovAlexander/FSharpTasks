@@ -1,20 +1,18 @@
-﻿// Fibonacci recursion function with extra pointer.
-let fibonacci n =
-    let rec loop n a b =
-        match n with
-        | 0 -> a
+﻿// Catching input below zero.
+exception WrongInputError of string
+
+// Fibonacci recursion function with extra pointer.
+let fibonacci index =
+    let rec loop counter prev2 prev1 =
+        match counter with
+        | 0 -> prev2
+        | x when x < 0 -> raise (WrongInputError("The given number is below zero."))
         | _ ->
-            let n1 = n-1
-            let ab = a + b
-            loop n1 b ab
-    loop n 0 1
+            let decreasedCounter = counter - 1
+            let sum = prev2 + prev1
+            loop decreasedCounter prev1 sum
+    loop index 0 1
 
-// What index to use.
-let num = 35
-
-// Printing result.
-let result = fibonacci num
-printfn "fibonacci element by index %d = %d" num result
-
-// Freezing console.
-System.Console.ReadKey(true) |> ignore  
+// Result.
+let index = 6
+let result = fibonacci index
