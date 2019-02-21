@@ -7,5 +7,5 @@ let rev list =
     loop list []
 
 // Result.
-let somelist = [1..10]
-let result = rev somelist
+let someList = [1..10]
+let result = rev someList
