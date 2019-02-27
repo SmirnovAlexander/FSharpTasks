@@ -3,6 +3,6 @@ image: Visual Studio 2017
 build_script:
     - cmd: cd FindElemInList
     - cmd: dotnet build
-test:
-  assemblies:
-    **\*.Tests.dll
+
+test_script:
+  - dotnet test
