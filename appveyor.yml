@@ -1,8 +1,6 @@
-version: 1.0.{build}
-image: Visual Studio 2017
-install:
-  - ps: choco install -y miktex
-  - cmd:  refreshenv
+image: Visual Studio 2017 
 
-build_script:
-  - cmd: pdflatex .\beta-reduction.tex
+build_script: 
+    - For /R %%I in (*.sln) do dotnet test %%I
+
+test: off
