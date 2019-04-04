@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.421
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "OOP", "OOP\OOP.fsproj", "{396E45C4-7CD6-4A1E-82CF-F5065F01DF7F}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "OOP", "OOP\OOP.fsproj", "{396E45C4-7CD6-4A1E-82CF-F5065F01DF7F}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "OOP.Tests", "OOP.Tests\OOP.Tests.fsproj", "{BBE3BD4A-87D2-4AAE-A775-7D2666BA7BF2}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "OOP.Tests", "OOP.Tests\OOP.Tests.fsproj", "{BBE3BD4A-87D2-4AAE-A775-7D2666BA7BF2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
