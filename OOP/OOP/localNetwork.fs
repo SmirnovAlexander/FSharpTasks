@@ -1,6 +1,7 @@
-﻿module logic =
+﻿module logic
 
     open System
+    open System.Collections.Generic
 
     // Computer class.
     type Computer(id: int, os: string, isInfected: bool) =
@@ -11,9 +12,8 @@
         member this.os = os
         member this.isInfected = IsInfected
 
-        member this.changeState = 
-            if (IsInfected = true) then IsInfected <- false
-                                   else IsInfected <- true
+        member this.changeState =  IsInfected <- true
+                                   
         
     // Map of infection probability.
     let infectProbability =
@@ -63,6 +63,8 @@
              yield! pairs t]
 
     
+    let WhomToInfectAtTheEndOfATurn = new List<Computer>()
+
     // Tries to infect a single computer according to its infection probability.
     let tryToInfect (computer: Computer) = 
 
@@ -73,9 +75,10 @@
 
          if (float (randInt) < probabity * 100.0) then 
            
-            computer.changeState
+            //computer.changeState
+            WhomToInfectAtTheEndOfATurn.Add(computer)
+           
             
-            numberOfInfectedComputers <- numberOfInfectedComputers + 1
             Console.ForegroundColor<-ConsoleColor.Red
             printfn "Successfully infected computer %i" computer.id
             Console.ForegroundColor<-ConsoleColor.White
@@ -107,6 +110,11 @@
                     printfn "Trying to infect computer %i from computer %i" (fst pair).id (snd pair).id
                     tryToInfect (fst pair)
                     Console.ForegroundColor<-ConsoleColor.White
+
+        for computer in WhomToInfectAtTheEndOfATurn do
+            computer.changeState
+            numberOfInfectedComputers <- numberOfInfectedComputers + 1
+        WhomToInfectAtTheEndOfATurn.Clear
     
     // Printing condotion before we start.
     condition ()
