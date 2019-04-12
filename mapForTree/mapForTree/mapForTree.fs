@@ -1,4 +1,4 @@
-﻿module logic
+﻿module Logic
 
     type Tree<'a> = 
       | Empty
