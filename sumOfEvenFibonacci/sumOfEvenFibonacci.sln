@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "sumOfEvenFibonacci", "sumOfEvenFibonacci\sumOfEvenFibonacci.fsproj", "{966D5B90-22D6-4E2B-BCB9-C13474CDF220}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "sumOfEvenFibonacci.Tests", "sumOfEvenFibonacci.Tests\sumOfEvenFibonacci.Tests.fsproj", "{2ACF06B7-3D04-447D-8D44-4529C0B9ABF5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{966D5B90-22D6-4E2B-BCB9-C13474CDF220}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{966D5B90-22D6-4E2B-BCB9-C13474CDF220}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{966D5B90-22D6-4E2B-BCB9-C13474CDF220}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{966D5B90-22D6-4E2B-BCB9-C13474CDF220}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2ACF06B7-3D04-447D-8D44-4529C0B9ABF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2ACF06B7-3D04-447D-8D44-4529C0B9ABF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2ACF06B7-3D04-447D-8D44-4529C0B9ABF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2ACF06B7-3D04-447D-8D44-4529C0B9ABF5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FEC4437B-AD89-4F64-B434-AF4F90242A84}
+	EndGlobalSection
+EndGlobal
