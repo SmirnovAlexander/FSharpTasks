@@ -1,4 +1,4 @@
-﻿module logic
+﻿module Logic
 
     exception ZeroDivisionException of string
 
@@ -11,10 +11,10 @@
 
     let rec evaluation = function
     | Number(i) -> i
-    | Addition(a,b) -> evaluation a + evaluation b
-    | Subtraction(a,b) -> evaluation a - evaluation b
-    | Multiplication(a,b) -> evaluation a * evaluation b
-    | Division(a,b) ->  if ( b <> Number 0) then
+    | Addition(a, b) -> evaluation a + evaluation b
+    | Subtraction(a, b) -> evaluation a - evaluation b
+    | Multiplication(a, b) -> evaluation a * evaluation b
+    | Division(a, b) ->  if (b <> Number 0) then
                             (evaluation a / evaluation b)
-                        else 
+                         else 
                             raise (ZeroDivisionException("Division by zero."))
