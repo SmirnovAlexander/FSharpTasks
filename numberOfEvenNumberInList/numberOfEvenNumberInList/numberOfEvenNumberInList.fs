@@ -1,15 +1,11 @@
-﻿module logic
+﻿module Logic
 
     let numberOfEvenNumberInListMap list =
-        let deuces = list |> List.map (fun x -> 
-            match x with
-            | two when two % 2 = 0 -> 2
-            | _ -> 0)
+        let listWithOnesPlacedInsteadOfEvenNumbers = list 
+                                                     |> List.map (fun x -> x + 1) 
+                                                     |> List.map (fun x -> x % 2)         
+        listWithOnesPlacedInsteadOfEvenNumbers |> List.sum
         
-        let sum = deuces |> List.sum
-        (sum / 2)
-        
-
     let numberOfEvenNumberInListFilter list =
         let deuces = list |> List.filter (fun x -> x % 2 = 0)
         deuces.Length
