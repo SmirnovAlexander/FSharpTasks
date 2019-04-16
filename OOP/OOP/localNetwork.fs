@@ -1,10 +1,16 @@
-﻿module logic
+﻿module Logic
 
     open System
     open System.Collections.Generic
+    open MathNet.Numerics.LinearAlgebra
+
+    // Operation system class.
+    type OS(name: string, infectProbability: float) =    
+        member this.name = name
+        member this.infectProbability = infectProbability
 
     // Computer class.
-    type Computer(id: int, os: string, isInfected: bool) =
+    type Computer(id: int, os: OS, isInfected: bool) =
         
         let mutable IsInfected = isInfected
        
@@ -12,119 +18,164 @@
         member this.os = os
         member this.isInfected = IsInfected
 
-        member this.changeState =  IsInfected <- true
-                                   
+        member this.changeState = IsInfected <- true
+                       
+    // Game type.
+    // To start a game we need a list of computers
+    // and coonections between them.
+    type Game(computers: list<Computer>, connections: Matrix<float>) =
+
+        (*
+            Initializing class methods.
+        *)
+
+        // Method to make pairs out of computers list.
+        let rec pairs list =
+            match list with
+            | [] | [_] -> []
+            | h :: t -> 
+                [for x in t do
+                    yield h,x
+                 yield! pairs t]
+
+        // Counting number of infected computers.
+        let countInfectedComputers (computers: list<Computer>) =
+            let mutable counter = 0
+            for computer in computers do
+                if (computer.isInfected = true) then
+                    counter <- counter + 1
+            counter
         
-    // Map of infection probability.
-    let infectProbability =
-        Map.empty.
-            Add("osX", 0.25).
-            Add("Windows", 0.75).            
-            Add("Linux", 0.5)
+        (*
+            Initializing class fields.
+        *)
 
-    // List of computers in network.   
-    let computers = [
-        Computer(1, "osX", true); 
-        Computer(2, "Windows", false);
-        Computer(3, "Linux", false)
-        Computer(4, "osX", false); 
-        Computer(5, "Windows", false);
-        Computer(6, "Linux", false)]
+        // Initializing a counter for infected computers.
+        let mutable NumberOfInfectedComputers = countInfectedComputers computers
 
-    let numberOfComputers = computers.Length
-    let mutable numberOfInfectedComputers = 1
-    
-    // Connection between computer (comparing by id).
-    let isConnected (computer1: Computer) (computer2: Computer) =
-        if (computer1.id = computers.[0].id && computer2.id = computers.[1].id) then true
-        else if (computer1.id = computers.[1].id && computer2.id = computers.[2].id) then true
-        else if (computer1.id = computers.[2].id && computer2.id = computers.[3].id) then true
-        else if (computer1.id = computers.[3].id && computer2.id = computers.[4].id) then true
-        else if (computer1.id = computers.[4].id && computer2.id = computers.[5].id) then true
-        else if (computer1.id = computers.[5].id && computer2.id = computers.[6].id) then true
-        else false
+        // Initializing game running variable that shows if game is still running.
+        let mutable IsRunning = true
+
+        // Initializing computers and connections.
+        member this.computers = computers
+        member this.connections = connections
+
+        // Total number of computers.
+        member this.numberOfComputers = computers.Length
+
+        // Making class member of infected computers.
+        member this.numberOfInfectedComputers = NumberOfInfectedComputers
+
+        // Making class member of game running.
+        member this.isRunning = IsRunning
         
-    
-    // Displaying network condition.
-    let condition () =
-        printfn"-------------"
-        for computer in computers do
-            printfn "id: %i, os: %s, infected: %b" computer.id computer.os computer.isInfected
-        printfn"-------------"
+        // Connection between computer (comparing by id).
+        member this.isConnected (computer1: Computer) (computer2: Computer) =
+             connections.Item(computer1.id, computer2.id) > 0.5
+        
+        (*
+            Initializing main class fields:
+                - condition
+                - infection
+                - checkIsOver
+        *)
 
+        // Displaying network condition.
+        member this.condition () =
+            printfn"-------------"
+            for computer in computers do
+                printfn "id: %i, os: %s, infected: %b" computer.id computer.os.name computer.isInfected
+            printfn"-------------"
 
-    // Making pairs out of computers list.
-    let rec pairs list =
-        match list with
-        | [] | [_] -> []
-        | h :: t -> 
-            [for x in t do
-                yield h,x
-             yield! pairs t]
+        // Iterating throw each pair and trying to infect.
+        member this.infection() =
 
-    
-    let WhomToInfectAtTheEndOfATurn = new List<Computer>()
+            // List of computers which should be infected at the end of a turn.
+            let WhomToInfectAtTheEndOfATurn = new List<Computer>()
 
-    // Tries to infect a single computer according to its infection probability.
-    let tryToInfect (computer: Computer) = 
+            // Tries to infect a single computer according to its infection probability.
+            let tryToInfect (computer: Computer) = 
 
-         let os = computer.os 
-         let probabity = Map.find os infectProbability
-         let random = new Random()
-         let randInt = random.Next(101)
+                 let os = computer.os 
+                 let probabity = os.infectProbability
+                 let random = new Random()
+                 let randInt = random.Next(101)
 
-         if (float (randInt) < probabity * 100.0) then 
+                 if (float (randInt) < probabity * 101.0) then 
            
-            //computer.changeState
-            WhomToInfectAtTheEndOfATurn.Add(computer)
+                    // If we got probability to infect computer we
+                    // add it to the list.
+                    WhomToInfectAtTheEndOfATurn.Add(computer)
            
-            
-            Console.ForegroundColor<-ConsoleColor.Red
-            printfn "Successfully infected computer %i" computer.id
-            Console.ForegroundColor<-ConsoleColor.White
-
-
-
-    // Iterating throw each pair and trying to infect.
-    let infection () =
-
-        // Making pairs.
-        let computerPairs = pairs computers
-
-        for pair in computerPairs do
-            
-            // If computers are connected.
-            if (isConnected (fst pair) (snd pair)) then 
-
-                // If first computer infected and second is not.
-                if ((fst pair).isInfected = true && (snd pair).isInfected = false) then
-
-                    Console.ForegroundColor<-ConsoleColor.Yellow
-                    printfn "Trying to infect computer %i from computer %i" (snd pair).id (fst pair).id
-                    tryToInfect (snd pair)
+                    // Printing.
+                    Console.ForegroundColor<-ConsoleColor.Red
+                    printfn "Successfully infected computer %i" computer.id
                     Console.ForegroundColor<-ConsoleColor.White
 
-                // If second computer infected and first is not.
-                else if ((fst pair).isInfected = false && (snd pair).isInfected = true) then
-                    Console.ForegroundColor<-ConsoleColor.Yellow
-                    printfn "Trying to infect computer %i from computer %i" (fst pair).id (snd pair).id
-                    tryToInfect (fst pair)
-                    Console.ForegroundColor<-ConsoleColor.White
+            // Making pairs.
+            let computerPairs = pairs computers
 
-        for computer in WhomToInfectAtTheEndOfATurn do
-            computer.changeState
-            numberOfInfectedComputers <- numberOfInfectedComputers + 1
-        WhomToInfectAtTheEndOfATurn.Clear
+            for pair in computerPairs do
+            
+                // If computers are connected.
+                if (this.isConnected (fst pair) (snd pair)) then 
+
+                    // If first computer infected and second is not.
+                    if ((fst pair).isInfected = true && (snd pair).isInfected = false) then
+
+                        Console.ForegroundColor<-ConsoleColor.Yellow
+                        printfn "Trying to infect computer %i from computer %i" (snd pair).id (fst pair).id
+                        tryToInfect (snd pair)
+                        Console.ForegroundColor<-ConsoleColor.White
+
+                    // If second computer infected and first is not.
+                    else if ((fst pair).isInfected = false && (snd pair).isInfected = true) then
+                        Console.ForegroundColor<-ConsoleColor.Yellow
+                        printfn "Trying to infect computer %i from computer %i" (fst pair).id (snd pair).id
+                        tryToInfect (fst pair)
+                        Console.ForegroundColor<-ConsoleColor.White
+
+            for computer in WhomToInfectAtTheEndOfATurn do
+                computer.changeState
+                NumberOfInfectedComputers <- NumberOfInfectedComputers + 1
+            
+            printfn "numberOfInfectedComputers = %i, numberOfComputers = %i" this.numberOfInfectedComputers this.numberOfComputers
+
+        // Member to check if game is over.
+        member this.checkIsOver() =
+
+             // If all computer are infected or not a single one infected game finishing.
+            if ((this.numberOfInfectedComputers = this.numberOfComputers) || (this.numberOfInfectedComputers = 0)) then
+                IsRunning <- false
+            
+        (*
+            Members to play game:
+                - makeTurn
+                - playGame
+        *)
+            
+        // Turn member.
+        member this.makeTurn = 
+
+            // If game running we make a turn.
+            if (this.isRunning) then
+                this.infection()
+                this.condition()
+                this.checkIsOver()                
+
+        // Game member.
+        member this.playGame = 
+
+            // Printing condition before we start.
+            this.condition ()
     
-    // Printing condotion before we start.
-    condition ()
-    
-    // While not all computer are infected or we do not have a single one infected we keep running.
-    while ((numberOfInfectedComputers <> numberOfComputers) && (numberOfInfectedComputers <> 0)) do
-        infection()
-        condition ()
+            // While game is running we make turns.
+            while (this.isRunning) do
+                this.makeTurn
 
-    if (numberOfInfectedComputers = numberOfComputers) then printf "all computers are infected"
-    else if (numberOfInfectedComputers = 0) then printf "No virus"
-
-    Console.ReadKey() |> ignore
+            if (this.numberOfInfectedComputers = this.numberOfComputers) then 
+                                                                                 printf "all computers are infected"
+                                                                         else if (this.numberOfInfectedComputers = 0) then 
+                                                                                 printf "No virus"
+            
+            Console.ReadKey() |> ignore
