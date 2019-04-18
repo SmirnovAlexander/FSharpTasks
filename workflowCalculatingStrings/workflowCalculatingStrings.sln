@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "workflowCalculatingStrings", "workflowCalculatingStrings\workflowCalculatingStrings.fsproj", "{05251CA7-2F4F-48BB-ABD1-665DDF2A8D5B}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "workflowCalculatingStrings.Tests", "workflowCalculatingStrings.Tests\workflowCalculatingStrings.Tests.fsproj", "{D38CB8F0-6A2E-47D6-AA19-E656B794E64D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{05251CA7-2F4F-48BB-ABD1-665DDF2A8D5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05251CA7-2F4F-48BB-ABD1-665DDF2A8D5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05251CA7-2F4F-48BB-ABD1-665DDF2A8D5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05251CA7-2F4F-48BB-ABD1-665DDF2A8D5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D38CB8F0-6A2E-47D6-AA19-E656B794E64D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D38CB8F0-6A2E-47D6-AA19-E656B794E64D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D38CB8F0-6A2E-47D6-AA19-E656B794E64D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D38CB8F0-6A2E-47D6-AA19-E656B794E64D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B366A69A-7C11-4949-B14A-360F6D2EE70F}
+	EndGlobalSection
+EndGlobal
