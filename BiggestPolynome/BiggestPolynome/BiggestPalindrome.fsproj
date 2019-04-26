@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="BiggestPolynome.fs" />
+    <Compile Include="BiggestPalindrome.fs" />
   </ItemGroup>
 
 </Project>
