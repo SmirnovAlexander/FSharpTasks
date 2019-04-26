@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "BiggestPolynome", "BiggestPolynome\BiggestPolynome.fsproj", "{2B91B1FC-7A66-46BD-9611-C3EA1C69BB7E}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "BiggestPolynome.Tests", "BiggestPolynome.Tests\BiggestPolynome.Tests.fsproj", "{88594A9D-231F-4AF2-9E6F-37AC4D219C32}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2B91B1FC-7A66-46BD-9611-C3EA1C69BB7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B91B1FC-7A66-46BD-9611-C3EA1C69BB7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B91B1FC-7A66-46BD-9611-C3EA1C69BB7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B91B1FC-7A66-46BD-9611-C3EA1C69BB7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88594A9D-231F-4AF2-9E6F-37AC4D219C32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88594A9D-231F-4AF2-9E6F-37AC4D219C32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88594A9D-231F-4AF2-9E6F-37AC4D219C32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88594A9D-231F-4AF2-9E6F-37AC4D219C32}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6A6AA32A-4FBF-49DC-BC74-1456C345F94E}
+	EndGlobalSection
+EndGlobal
