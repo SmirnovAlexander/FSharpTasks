@@ -19,14 +19,11 @@ $$((\lambda a.(\lambda b.b\:b)\:(\lambda b.b\:b))\:b)\:((\lambda c.(c\:b)) (\lam
 
 \section{Solution}
 
-$$(\mathbf{\textbf{(} \lambda a.\textbf{(}\lambda b.b\:b\textbf{)}\:\textbf{(}\lambda b.b\:b\textbf{)}\textbf{)}}\:b)\:((\lambda c.(c\:b)) (\lambda a.a))$$
+$$\textbf{(}\mathbf{\textbf{(} \lambda a.\textbf{(}\lambda b.b\:b\textbf{)}\:\textbf{(}\lambda b.b\:b\textbf{)}\textbf{)}\:b}\textbf{)}\:((\lambda c.(c\:b)) (\lambda a.a))$$
 
-$$\mathbf{\textbf{(}\textbf{(}\lambda b.b\:b\textbf{)}\:b\textbf{)}}\:((\lambda c.(c\:b)) (\lambda a.a))$$
+$$((\lambda b.b\:b)(\lambda b.b\:b))\mathbf{\:\textbf{(}\textbf{(}\lambda c.\textbf{(}c\:b\textbf{)}\textbf{)} \textbf{(}\lambda a.a\textbf{)}\textbf{)}}$$
 
-$$b\:b\:\mathbf{\textbf{(}\textbf{(}\lambda c.\textbf{(}c\:b\textbf{)}\textbf{)} \textbf{(}\lambda a.a\textbf{)}\textbf{)}}$$
 
-$$b\:b\:\mathbf{\textbf{(}\lambda a.a\textbf{)}\:b}$$
-
-$$b\:b\:b$$
+$$((\lambda b.b\:b)(\lambda b.b\:b))b$$
 
 \end{document}
