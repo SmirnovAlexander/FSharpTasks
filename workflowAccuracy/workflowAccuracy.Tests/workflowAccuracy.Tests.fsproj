@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="workflowAccuracy_tests.fs" />
+    <Compile Include="workflowAccuracyTests.fs" />
   </ItemGroup>
 
   <ItemGroup>

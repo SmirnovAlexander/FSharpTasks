@@ -11,7 +11,7 @@
             let! b = 3.5
             return a / b
         }
-        result |> should equal 0.048
+        result |> should (equalWithin 0.001) 0.048
 
     [<Test>]
     let ``5 symbols after dot``() =
@@ -20,7 +20,7 @@
             let! b = 13.0
             return a / b
         }
-        result |> should equal 0.61538
+        result |> should (equalWithin 0.00001) 0.61538
 
     [<Test>]
     let ``7 symbols after dot``() =
@@ -29,4 +29,4 @@
             let! b = 7.0
             return a / b
         }
-        result |> should equal 1.1428571
+        result |> should (equalWithin 0.0000001) 1.14285710
