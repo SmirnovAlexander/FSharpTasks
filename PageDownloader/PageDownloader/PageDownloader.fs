@@ -6,7 +6,7 @@
 
     // Gets web page, downloads all pages that have their links on input page
     // and prints information about every page in format "url --- number of symbols".
-    let NumberOfLettersOnInnerPages (page: string) =
+    let numberOfLettersOnInnerPages (page: string) =
     
         // Getting html of current page.
         let html = HtmlDocument.Load(page)
@@ -30,7 +30,8 @@
                 use reader = new StreamReader(stream)
                 let html = reader.ReadToEnd()
                 do printfn "Read %d characters for %s..." html.Length url
+                return url
             }
        
         // Executing fetchAsync method for every link.
-        links |> List.map (fun site -> site |> fetchAsync |> Async.Start) |> ignore
+        Async.Parallel (links |> List.map (fun site -> site |> fetchAsync)) |> Async.RunSynchronously
