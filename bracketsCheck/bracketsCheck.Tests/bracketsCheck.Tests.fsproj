@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="bracketsCheck_tests.fs" />
+    <Compile Include="bracketsCheckTests.fs" />
   </ItemGroup>
 
   <ItemGroup>

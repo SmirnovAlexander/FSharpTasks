@@ -1,18 +1,36 @@
-﻿module logic 
+﻿module Logic
 
-    let bracketsCheck (string : string) =
-        let listOfChars = Seq.toList string
-        let rec loop list counter1 counter2 counter3 =
-            match list with
-                | head::tail -> if ((counter1 < 0) || (counter2 < 0) || (counter3 < 0)) then Some(false)
-                                                                                        else match head with 
-                                                                                             | '(' -> loop tail (counter1 + 1) counter2 counter3
-                                                                                             | ')' -> loop tail (counter1 - 1) counter2 counter3
-                                                                                             | '{' -> loop tail counter1 (counter2 + 1) counter3
-                                                                                             | '}' -> loop tail counter1 (counter2 - 1) counter3
-                                                                                             | '[' -> loop tail counter1 counter2 (counter3 + 1)
-                                                                                             | ']' -> loop tail counter1 counter2 (counter3 - 1)
-                                                                                             | _ -> loop tail counter1 counter2 counter3
-                | [] -> if ((counter1 = 0) && (counter2 = 0) && (counter3 = 0)) then Some(true)
-                                                                                else Some(false)
-        loop listOfChars 0 0 0    
+    open System.Collections.Generic
+
+    /// Clearing string from all symbols except brackets and return list of brackets.
+    let leaveOnlyBrackets (str : string) =
+
+        let brackets = ['('; '['; '{'; ')'; ']'; '}']
+
+        // Making list of chars.
+        let strList = str.ToCharArray() |> Array.toList
+
+        // Filtering list.
+        let onlyBracketsList = strList |> List.filter(fun x -> List.contains(x) brackets)
+
+        onlyBracketsList  
+
+    /// Checks for brackets correctness.
+    let bracketsCheck (str : string) =
+
+        let onlyBracketsList = leaveOnlyBrackets (str)
+        let stack = Stack()
+
+        let rec loop (brackets: list<char>, stack: Stack<char>) =
+            match brackets with
+            | [] -> stack.Count = 0
+            | head::tail -> if ((head = '(') || (head = '[') || (head = '{')) then stack.Push(head)
+                                                                                   loop (tail, stack)
+                            else if (head = ')') then if ((stack.Count = 0) || (stack.Pop() <> '(')) then false
+                                                      else loop (tail, stack)
+                            else if (head = ']') then if ((stack.Count = 0) || (stack.Pop() <> '[')) then false
+                                                      else loop (tail, stack)
+                            else                      if ((stack.Count = 0) || (stack.Pop() <> '{')) then false
+                                                      else loop (tail, stack)
+                                                      
+        loop (onlyBracketsList, stack)      
