@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="localNetwork_tests.fs" />
+    <Compile Include="localNetworkTests.fs" />
   </ItemGroup>
 
   <ItemGroup>
