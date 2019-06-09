@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="pointFreeMap_tests.fs" />
+    <Compile Include="pointFreeMapTests.fs" />
   </ItemGroup>
 
   <ItemGroup>
