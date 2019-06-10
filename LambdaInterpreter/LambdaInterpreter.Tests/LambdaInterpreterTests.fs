@@ -6,7 +6,7 @@
     
     [<Test>]
     let ``((\x.\y.x  \a.(a a))   \b.b)  -----> \a.(a a)``() =        
-        (interpString("((\\x.\\y.x  \\a.(a a))   \\b.b)")) |> should equal ("\\a.(a a)")
+        (interpString(@"((\x.\y.x \a.(a a)) \b.b)")) |> should equal ("\\a.(a a)")
 
     [<Test>]
     let ``(\x.x \y.y) -----> \y.y``() =        
@@ -26,4 +26,4 @@
         
     [<Test>]
     let capture() =
-        (interpString(@"((\x.\y.(x y) \t.y) \b.b)")) |> should equal ("\\b.b")     
+        (interpString(@"((\x.\y.(x y) \t.y) \y.y)")) |> should equal ("\\y.y")     
