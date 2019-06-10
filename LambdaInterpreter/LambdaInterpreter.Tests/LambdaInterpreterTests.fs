@@ -11,3 +11,15 @@
     [<Test>]
     let ``(\x.x \y.y) -----> \y.y``() =        
         (interpString("(\\x.x \\y.y)")) |> should equal ("\\y.y")
+
+    [<Test>]
+    let ``(\x.x -----> \x.x)``() =        
+        (interpString("\\x.x")) |> should equal ("\\x.x")
+
+    [<Test>]
+    let ``((\x.x \y.y) \z.(z z)) -----> \z.(z z)``() =        
+        (interpString("((\\x.x \\y.y)\\z.(z z))")) |> should equal ("\\z.(z z)")
+
+    [<Test>]
+    let ``((\x.\y.\z.(z z) \y.y) -----> \y.\z.(z z))``() =        
+        (interpString("(\\x.\\y.\\z.(z z) \\y.y)")) |> should equal ("\\y.\\z.(z z)")                
