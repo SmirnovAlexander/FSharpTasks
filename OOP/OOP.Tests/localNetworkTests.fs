@@ -5,13 +5,25 @@
     open Logic    
     open MathNet.Numerics.LinearAlgebra
 
+    // Initializing connections matrix
+    let mutable connections = matrix [[0.0]]
+
+    [<SetUp>]
+    let ``run before test``() =
+        connections <- matrix  [[0.0; 1.0; 0.0; 0.0; 0.0; 0.0]; 
+                                [1.0; 0.0; 1.0; 0.0; 0.0; 0.0];
+                                [0.0; 1.0; 0.0; 1.0; 0.0; 0.0];
+                                [0.0; 0.0; 1.0; 0.0; 1.0; 0.0];
+                                [0.0; 0.0; 0.0; 1.0; 0.0; 1.0];
+                                [0.0; 0.0; 0.0; 0.0; 1.0; 0.0];
+                               ] 
 
     (*
         Creating 6 computers, connected 1 by 1 from 1st to 6th.
         First computer infected, infect probability = 1 for each computer.
         Expecting to infect 1 computer each turn
     *)
-
+    
     [<Test>]
     let ``Infect 1st computer`` () =
         // List of computers in network.   
@@ -22,15 +34,6 @@
             Computer(3, OS("Linux", 1.0), false); 
             Computer(4, OS("osX", 1.0), false);
             Computer(5, OS("Windows", 1.0), false)]
-
-        // Connections matrix
-        let connections = matrix [[0.0; 1.0; 0.0; 0.0; 0.0; 0.0]; 
-                                  [1.0; 0.0; 1.0; 0.0; 0.0; 0.0];
-                                  [0.0; 1.0; 0.0; 1.0; 0.0; 0.0];
-                                  [0.0; 0.0; 1.0; 0.0; 1.0; 0.0];
-                                  [0.0; 0.0; 0.0; 1.0; 0.0; 1.0];
-                                  [0.0; 0.0; 0.0; 0.0; 1.0; 0.0];
-                                 ] 
 
         let game = GamePlay(computers, connections)
         game.MakeTurn
@@ -47,15 +50,6 @@
             Computer(4, OS("osX", 1.0), false);
             Computer(5, OS("Windows", 1.0), false)]
 
-        // Connections matrix
-        let connections = matrix [[0.0; 1.0; 0.0; 0.0; 0.0; 0.0]; 
-                                  [1.0; 0.0; 1.0; 0.0; 0.0; 0.0];
-                                  [0.0; 1.0; 0.0; 1.0; 0.0; 0.0];
-                                  [0.0; 0.0; 1.0; 0.0; 1.0; 0.0];
-                                  [0.0; 0.0; 0.0; 1.0; 0.0; 1.0];
-                                  [0.0; 0.0; 0.0; 0.0; 1.0; 0.0];
-                                 ] 
-
         let game = GamePlay(computers, connections)
         game.MakeTurn
         game.MakeTurn       
@@ -71,15 +65,6 @@
             Computer(3, OS("Linux", 1.0), false); 
             Computer(4, OS("osX", 1.0), false);
             Computer(5, OS("Windows", 1.0), false)]
-
-        // Connections matrix
-        let connections = matrix [[0.0; 1.0; 0.0; 0.0; 0.0; 0.0]; 
-                                  [1.0; 0.0; 1.0; 0.0; 0.0; 0.0];
-                                  [0.0; 1.0; 0.0; 1.0; 0.0; 0.0];
-                                  [0.0; 0.0; 1.0; 0.0; 1.0; 0.0];
-                                  [0.0; 0.0; 0.0; 1.0; 0.0; 1.0];
-                                  [0.0; 0.0; 0.0; 0.0; 1.0; 0.0];
-                                 ] 
 
         let game = GamePlay(computers, connections)
         game.MakeTurn
@@ -98,15 +83,6 @@
             Computer(4, OS("osX", 1.0), false);
             Computer(5, OS("Windows", 1.0), false)]
 
-        // Connections matrix
-        let connections = matrix [[0.0; 1.0; 0.0; 0.0; 0.0; 0.0]; 
-                                  [1.0; 0.0; 1.0; 0.0; 0.0; 0.0];
-                                  [0.0; 1.0; 0.0; 1.0; 0.0; 0.0];
-                                  [0.0; 0.0; 1.0; 0.0; 1.0; 0.0];
-                                  [0.0; 0.0; 0.0; 1.0; 0.0; 1.0];
-                                  [0.0; 0.0; 0.0; 0.0; 1.0; 0.0];
-                                 ] 
-
         let game = GamePlay(computers, connections)
         game.MakeTurn
         game.MakeTurn
@@ -124,15 +100,6 @@
             Computer(3, OS("Linux", 1.0), false); 
             Computer(4, OS("osX", 1.0), false);
             Computer(5, OS("Windows", 1.0), false)]
-
-        // Connections matrix
-        let connections = matrix [[0.0; 1.0; 0.0; 0.0; 0.0; 0.0]; 
-                                  [1.0; 0.0; 1.0; 0.0; 0.0; 0.0];
-                                  [0.0; 1.0; 0.0; 1.0; 0.0; 0.0];
-                                  [0.0; 0.0; 1.0; 0.0; 1.0; 0.0];
-                                  [0.0; 0.0; 0.0; 1.0; 0.0; 1.0];
-                                  [0.0; 0.0; 0.0; 0.0; 1.0; 0.0];
-                                 ] 
 
         let game = GamePlay(computers, connections)
         game.MakeTurn
@@ -159,15 +126,6 @@
             Computer(4, OS("osX", 1.0), false);
             Computer(5, OS("Windows", 1.0), false)]
 
-        // Connections matrix
-        let connections'1 = matrix [[0.0; 1.0; 0.0; 0.0; 0.0; 0.0]; 
-                                    [1.0; 0.0; 1.0; 0.0; 0.0; 0.0];
-                                    [0.0; 1.0; 0.0; 1.0; 0.0; 0.0];
-                                    [0.0; 0.0; 1.0; 0.0; 1.0; 0.0];
-                                    [0.0; 0.0; 0.0; 1.0; 0.0; 1.0];
-                                    [0.0; 0.0; 0.0; 0.0; 1.0; 0.0];
-                                   ] 
- 
-        let game'1 = GamePlay(computers'1, connections'1)
+        let game'1 = GamePlay(computers'1, connections)
         game'1.MakeTurn
         game'1.IsRunning |> should equal false
