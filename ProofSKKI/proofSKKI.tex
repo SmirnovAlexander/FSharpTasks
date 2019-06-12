@@ -1,0 +1,35 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{homework 4, task 2}
+\author{Alexander Smirnov}
+\date{March 2019}
+
+\usepackage{natbib}
+\usepackage{graphicx}
+
+\begin{document}
+
+\maketitle
+
+\section{What to do}
+Prove that $S\:K\:K = I: $
+
+$$(\lambda x\:y\:z.x\:z\:(y\:z))\:(\lambda x\:y.x)\:(\lambda x\:y.x)=\lambda x.x$$
+
+\section{Solution}
+
+$$(\lambda x\:y\:z.x\:z\:(y\:z))\:(\lambda x\:y.x)\:(\lambda x\:y.x)$$
+
+$$(\lambda x.\lambda y\:z.x\:z\:(y\:z))\:(\lambda x\:t.x)\:(\lambda x\:y.x)$$
+
+$$(\lambda y\:z.(\lambda x\:t.x)\:z\:(y\:z))\:(\lambda x\:y.x)$$
+
+$$(\lambda y\:z.z)\:(\lambda x\:y.x)$$
+
+$$(\lambda y.\lambda z.z)\:(\lambda x\:y.x)$$
+
+$$\lambda z.z$$
+
+
+\end{document}
