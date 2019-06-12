@@ -54,6 +54,4 @@
             Interlocked.Increment &counter |> ignore 
             (Interlocked.Read &counter) |> should equal 1)             
         for i in 1..10 do
-            Task.Run(fun () -> (lazyObj :> ILazy<unit>).Get()) |> ignore    
-
-    
+            Task.Run(fun () -> (lazyObj :> ILazy<unit>).Get()) |> ignore        
