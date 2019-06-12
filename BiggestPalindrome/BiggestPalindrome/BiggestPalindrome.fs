@@ -12,8 +12,8 @@
         number = reverse number     
 
     // Iterating throw each pair of three digit numbers.
-    let BiggestPalindrome () = 
-        let rec loop (first:int, second:int, maxValue: int) = 
+    let biggestPalindrome () = 
+        let rec loop (first: int, second: int, maxValue: int) = 
             match first with
             | 99 -> maxValue
             | _ when checkForPalindrome (first * second) ->

@@ -14,4 +14,4 @@
 
     [<Test>]
     let ``Final check`` () =
-        BiggestPalindrome () |> should equal 906609
+        biggestPalindrome () |> should equal 906609
