@@ -1,0 +1,30 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{homework 4, task 1}
+\author{Alexander Smirnov}
+\date{March 2019}
+
+\usepackage{natbib}
+\usepackage{graphicx}
+
+\begin{document}
+
+\maketitle
+
+\section{What to do}
+Make $\beta$-reduction of $\lambda$-term:
+
+$$((\lambda a.(\lambda b.b\:b)\:(\lambda b.b\:b))\:b)\:((\lambda c.(c\:b)) (\lambda a.a))$$
+
+\section{Solution}
+
+$$\textbf{(}\mathbf{\textbf{(} \lambda a.\textbf{(}\lambda b.b\:b\textbf{)}\:\textbf{(}\lambda b.b\:b\textbf{)}\textbf{)}\:b}\textbf{)}\:((\lambda c.(c\:b)) (\lambda a.a))$$
+
+$$((\lambda b.b\:b)(\lambda b.b\:b))\mathbf{\:\textbf{(}\textbf{(}\lambda c.\textbf{(}c\:b\textbf{)}\textbf{)} \textbf{(}\lambda a.a\textbf{)}\textbf{)}}$$
+
+$$((\lambda b.b\:b)(\lambda b.b\:b))\mathbf{\textbf{(}\textbf{(}\lambda a.a\textbf{)}b\textbf{)}}$$
+
+$$((\lambda b.b\:b)(\lambda b.b\:b))b$$
+
+\end{document}
