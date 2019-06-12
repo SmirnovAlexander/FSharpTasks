@@ -41,19 +41,19 @@ Below are listed all tasks with links and descriptions.
 ## Homework 3.
 01.03.19 
 
- - [3.1](https://www.google.com)
+ - [3.1](https://github.com/SmirnovAlexander/FSharpTasks/tree/master/NumberOfEvenNumberInList)
 
    Make three variants of a function, that counts number of even elements in list (using default functions map, filter, fold). Recursion if forbidden.
 
- - [3.2](https://www.google.com)
+ - [3.2](https://github.com/SmirnovAlexander/FSharpTasks/tree/master/MapForTree)
 
    Make function that applies given function to every element of binary tree and returns new binary tree every element of which --- result of applying function to corresponding element given tree (map for trees).
 
- - [3.3](https://www.google.com)
+ - [3.3](https://github.com/SmirnovAlexander/FSharpTasks/tree/master/CalculatingArithmeticalTree)
 
    Count value of tree of arithmetical expression given throw inserted discriminated unions.
 
- - [3.4](https://github.com/SmirnovAlexander/FSharpTasks/tree/master/NumberOfEvenNumberInList)
+ - [3.4](https://github.com/SmirnovAlexander/FSharpTasks/tree/master/InfinitePrimeNumbers)
 
    Make function that generate an infinite sequence of prime numbers.
 
