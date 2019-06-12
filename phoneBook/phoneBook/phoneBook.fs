@@ -13,8 +13,12 @@
 
         // Printing book.
         member this.PrintBook (book: Map<string, string>) = 
-            for record in book do
-                printfn "%s, %s" record.Key record.Value
+            let rec loop restBook= 
+                match restBook with
+                | head::tail -> printfn "%s, %s" (fst head) (snd head)
+                                loop tail
+                | [] -> true
+            loop (Map.toList book)
 
         // Add record to a book.
         // If key already exists, overrides it's value.
@@ -52,7 +56,7 @@
 
             // Trying to find file.
             try
-                let fsIn = new FileStream("Data.dat", FileMode.Open)
+                use fsIn = new FileStream("Data.dat", FileMode.Open)
                 let res : Map<string, string> = readValue fsIn            
                 fsIn.Close()
                 printfn "Successfully loaded data!"
