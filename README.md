@@ -27,52 +27,65 @@ Below are listed all tasks with links and descriptions.
 22.02.19 
 
  - [2.1](https://github.com/SmirnovAlexander/FSharpTasks/tree/master/FindElemInList)
-Make function that returns index of first appearance of element in list
+ 
+   Make function that returns index of first appearance of element in list
 
  - [2.2](https://github.com/SmirnovAlexander/FSharpTasks/tree/master/CheckForPalindrome)
-Make function that checks if given string is a palindrome.
+
+   Make function that checks if given string is a palindrome.
 
  - [2.3](https://github.com/SmirnovAlexander/FSharpTasks/tree/master/MergeSort)
-Make mergesort: function that given list and returns sorted list.
+
+   Make mergesort: function that given list and returns sorted list.
 
 ## Homework 3.
 01.03.19 
 
  - [3.1](https://www.google.com)
-Make three variants of a function, that counts number of even elements in list (using default functions map, filter, fold). Recursion if forbidden.
+
+   Make three variants of a function, that counts number of even elements in list (using default functions map, filter, fold). Recursion if forbidden.
 
  - [3.2](https://www.google.com)
-Make function that applies given function to every element of binary tree and returns new binary tree every element of which --- result of applying function to corresponding element given tree (map for trees).
+
+   Make function that applies given function to every element of binary tree and returns new binary tree every element of which --- result of applying function to corresponding element given tree (map for trees).
 
  - [3.3](https://www.google.com)
-Count value of tree of arithmetical expression given throw inserted discriminated unions.
+
+   Count value of tree of arithmetical expression given throw inserted discriminated unions.
 
  - [3.4](https://github.com/SmirnovAlexander/FSharpTasks/tree/master/NumberOfEvenNumberInList)
-Make function that generate an infinite sequence of prime numbers.
+
+   Make function that generate an infinite sequence of prime numbers.
 
 ## Homework 4. 
 15.03.19 
 
  - [4.1](https://github.com/SmirnovAlexander/FSharpTasks/tree/master/BetaReduction)
-Make β-reduction of λ-term ((λa.(λb.b b) (λb.b b)) b) ((λc.(c b)) (λa.a)).
+
+   Make β-reduction of λ-term ((λa.(λb.b b) (λb.b b)) b) ((λc.(c b)) (λa.a)).
 
  - [4.2](https://github.com/SmirnovAlexander/FSharpTasks/tree/master/ProofSKKI)
-Prove that S K K = I.
+
+   Prove that S K K = I.
 
  - [4.3](https://github.com/SmirnovAlexander/FSharpTasks/tree/master/LambdaInterpreter)
-Make a lamda expression calculator that makes β-reduction on normal strategy. Lambda expressions are given throw discriminated unions. Should be an α-conversion support to avoid capturing free variables.
+
+   Make a lamda expression calculator that makes β-reduction on normal strategy. Lambda expressions are given throw discriminated unions. Should be an α-conversion support to avoid capturing free variables.
 
 ## Homework 5. 
 22.03.19 
 
  - [5.1](https://github.com/SmirnovAlexander/FSharpTasks/tree/master/BracketsCheck)
-Make function that checks if brackets sequence is correct in given string. There are three type of brackets.
+
+   Make function that checks if brackets sequence is correct in given string. There are three type of brackets.
 
  - [5.2](https://github.com/SmirnovAlexander/FSharpTasks/tree/master/PointFree)
-Rewrite in point-free style func x l = List.map (fun y -> y * x) l. Write steps and check result with FsCheck.
+
+   Rewrite in point-free style func x l = List.map (fun y -> y * x) l. Write steps and check result with FsCheck.
 
  - [5.3](https://github.com/SmirnovAlexander/FSharpTasks/tree/master/PhoneBook)
-Write phone book. It should be able to store names and phone numbers and make these operations in an interactive mode:
+
+   Write phone book. It should be able to store names and phone numbers and make these operations in an interactive mode:
 -- exit.
 -- add record (and and phone).
 -- find phone by name.
@@ -85,7 +98,8 @@ Write phone book. It should be able to store names and phone numbers and make th
 29.03.19 
 
  - [6.1](https://github.com/SmirnovAlexander/FSharpTasks/tree/master/OOP)
-In object-oriented style model work of local network:
+
+   In object-oriented style model work of local network:
    * exists several computers that are connected to each other (how – for example with adjacency matrix);
    * on every computer exists ОС (Windows, Linux, etc...);
    * in network are walking viruses, so for every machine exist non-zero probability to be infected (probability     depends on OS type), infecting computers, which are connected to infected ones;
@@ -98,7 +112,8 @@ Program should print state of network periodically.
 05.04.19 
 
  - [7.1](https://github.com/SmirnovAlexander/FSharpTasks/tree/master/WorkflowAccuracy)
-Make Workflow, that makes arithmetical operations with given (as Builder argument) accuracy. For example,
+
+   Make Workflow, that makes arithmetical operations with given (as Builder argument) accuracy. For example,
    ```fsharp
     rounding 3 {
         let! a = 2.0 / 12.0
@@ -109,7 +124,8 @@ Make Workflow, that makes arithmetical operations with given (as Builder argumen
     should return 0.048.
 
  - [7.2](https://github.com/SmirnovAlexander/FSharpTasks/tree/master/WorkflowCalculatingStrings)
-Make Workflow, that makes calculations with numbers, given in strings. For example,
+
+   Make Workflow, that makes calculations with numbers, given in strings. For example,
    ```fsharp
     let result = calculate {
         let! x = "1"
@@ -133,19 +149,23 @@ Make Workflow, that makes calculations with numbers, given in strings. For examp
 12.04.19
 
  - [Test, 1.1](https://github.com/SmirnovAlexander/FSharpTasks/tree/master/InfiniteNumbers)
-Make an infinite sequence of [1, -2, 3, -4, 5, -6, ...].
+
+   Make an infinite sequence of [1, -2, 3, -4, 5, -6, ...].
 
  - [Test, 1.2](https://github.com/SmirnovAlexander/FSharpTasks/tree/master/BiggestPalindrome)
-Find biggest palindrome in list of all multiplications of all 3-digit numbers.
+
+   Find biggest palindrome in list of all multiplications of all 3-digit numbers.
 
  - [Test, 1.3](https://github.com/SmirnovAlexander/FSharpTasks/tree/master/Stack)
-Make stack.
+
+   Make stack.
 
 ## Homework 8. 
 19.04.19 
 
  - [8.1](https://github.com/SmirnovAlexander/FSharpTasks/tree/master/Lazy)
-Inherit interface, providing lazy calculations:
+
+   Inherit interface, providing lazy calculations:
    ```fsharp
     type ILazy<'a> =
     abstract member Get: unit -> 'a    
@@ -165,7 +185,8 @@ Inherit interface, providing lazy calculations:
    - Guarantee of correct work in a multithreaded mode but lock-free. Calculation may run more than once, but Lazy.Get always should return same object.
 
  - [8.2](https://github.com/SmirnovAlexander/FSharpTasks/tree/master/PageDownloader)
-Make function that gets web page, downloads all pages that have their links on input page and prints information about every page in format "url --- number of symbols". Download of pages should run asynchronously.
+
+   Make function that gets web page, downloads all pages that have their links on input page and prints information about every page in format "url --- number of symbols". Download of pages should run asynchronously.
 
 ## Homework 9. 
 10.05.19
