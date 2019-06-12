@@ -8,15 +8,19 @@ Below are listed all tasks with links and descriptions.
 15.02.19 
 
 - [1.1](https://github.com/SmirnovAlexander/FSharpTasks/tree/master/Factorial)
+
 Count factorial.
 
 - [1.2](https://github.com/SmirnovAlexander/FSharpTasks/tree/master/Fibonacci)
+
 Count fibonacci numbers (on linear time).
 
 - [1.3](https://github.com/SmirnovAlexander/FSharpTasks/tree/master/ListReverse)
+
 Make function that reverses list (on linear time).
 
 - [1.4](https://github.com/SmirnovAlexander/FSharpTasks/tree/master/FillListWithPowersOfTwo)
+
 Make function that given n and m and returns list of elements [2n; 2n + 1; ...; 2n + m].
 
 ## Homework 2. 
