@@ -18,8 +18,8 @@
         numberOfEvenNumberInListMap [1..10] |> should equal 5
 
     [<Test>]
-    let ``numberOfEvenNumberInListMap given [1;2;25;5;6] should return 2`` () =
-        numberOfEvenNumberInListMap [1;2;25;5;6] |> should equal 2
+    let ``numberOfEvenNumberInListMap given [1; 2; 25; 5; 6] should return 2`` () =
+        numberOfEvenNumberInListMap [1; 2; 25; 5; 6] |> should equal 2
 
     // Testing numberOfEvenNumberInListFilter.
     [<Test>]
@@ -35,8 +35,8 @@
         numberOfEvenNumberInListFilter [1..10] |> should equal 5
 
     [<Test>]
-    let ``numberOfEvenNumberInListFilter given [1;2;25;5;6] should return 2`` () =
-        numberOfEvenNumberInListFilter [1;2;25;5;6] |> should equal 2
+    let ``numberOfEvenNumberInListFilter given [1; 2; 25; 5; 6] should return 2`` () =
+        numberOfEvenNumberInListFilter [1; 2; 25; 5; 6] |> should equal 2
 
     // Testing numberOfEvenNumberInListFilter.
     [<Test>]
@@ -52,6 +52,6 @@
         numberOfEvenNumberInListFold [1..10] |> should equal 5
 
     [<Test>]
-    let ``numberOfEvenNumberInListFold given [1;2;25;5;6] should return 2`` () =
-        numberOfEvenNumberInListFold [1;2;25;5;6] |> should equal 2
+    let ``numberOfEvenNumberInListFold given [1; 2; 25; 5; 6] should return 2`` () =
+        numberOfEvenNumberInListFold [1; 2; 25; 5; 6] |> should equal 2
 
