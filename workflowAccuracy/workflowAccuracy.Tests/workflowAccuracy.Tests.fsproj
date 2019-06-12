@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="workflowAccuracyTests.fs" />
+    <Compile Include="WorkflowAccuracyTests.fs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\workflowAccuracy\workflowAccuracy.fsproj" />
+    <ProjectReference Include="..\WorkflowAccuracy\WorkflowAccuracy.fsproj" />
   </ItemGroup>
 
 </Project>
